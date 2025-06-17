@@ -25,6 +25,7 @@
   }
 }
 
+<<<<<<< HEAD
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -45,6 +46,8 @@
   vertical-align: middle;
 }
 
+=======
+>>>>>>> b9e534f (Initial commit after local changes)
 .fade-in {
   animation: fadeIn 0.4s ease-in-out;
 }
@@ -72,6 +75,7 @@
   scale: 1.1;
 }
 
+<<<<<<< HEAD
 .btn:disabled {
   background: #6a6a6a;
   color: #828282;
@@ -83,6 +87,8 @@
   scale: 1;
 }
 
+=======
+>>>>>>> b9e534f (Initial commit after local changes)
 .btn-primary {
   color: var(--primary-blue);
 }

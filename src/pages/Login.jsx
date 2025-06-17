@@ -11,10 +11,17 @@ function Login() {
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
 
   const { login } = useAuth();
   const navigate = useNavigate();
 
+=======
+  
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  
+>>>>>>> b9e534f (Initial commit after local changes)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -22,6 +29,7 @@ function Login() {
       [name]: value
     }));
   };
+<<<<<<< HEAD
 
   const demoUsers = [
     {
@@ -36,10 +44,14 @@ function Login() {
     }
   ];
 
+=======
+  
+>>>>>>> b9e534f (Initial commit after local changes)
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
     setLoading(true);
+<<<<<<< HEAD
 
     const matchedUser = demoUsers.find(u =>
       u.email === formData.email && u.password === formData.password
@@ -47,10 +59,23 @@ function Login() {
 
     if (matchedUser) {
       login(matchedUser.user);
+=======
+    
+    // Demo credentials check (replace with actual authentication in production)
+    if (formData.email === 'doctor@example.com' && formData.password === 'password') {
+      // Login successful
+      login({
+        id: '1',
+        name: 'Sarah Johnson',
+        email: formData.email,
+        role: 'doctor'
+      });
+>>>>>>> b9e534f (Initial commit after local changes)
       navigate('/booking');
     } else {
       setError('Invalid credentials. Please try again.');
     }
+<<<<<<< HEAD
 
     setLoading(false);
   };
@@ -60,15 +85,31 @@ function Login() {
     <div className="login-page">
       <Navbar />
 
+=======
+    
+    setLoading(false);
+  };
+  
+  return (
+    <div className="login-page">
+      <Navbar />
+      
+>>>>>>> b9e534f (Initial commit after local changes)
       <div className="login-container container fade-in">
         <div className="login-card card">
           <div className="login-header">
             <h2>Doctor Login</h2>
             <p>Sign in to access the Navatar remote consultation system</p>
           </div>
+<<<<<<< HEAD
 
           {error && <div className="error-message">{error}</div>}
 
+=======
+          
+          {error && <div className="error-message">{error}</div>}
+          
+>>>>>>> b9e534f (Initial commit after local changes)
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
               <label htmlFor="email" className="form-label">Email</label>
@@ -83,7 +124,11 @@ function Login() {
                 placeholder="your.email@hospital.com"
               />
             </div>
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> b9e534f (Initial commit after local changes)
             <div className="form-group">
               <label htmlFor="password" className="form-label">Password</label>
               <input
@@ -97,10 +142,17 @@ function Login() {
                 placeholder="••••••••"
               />
             </div>
+<<<<<<< HEAD
 
             <div className="form-footer">
               <button
                 type="submit"
+=======
+            
+            <div className="form-footer">
+              <button 
+                type="submit" 
+>>>>>>> b9e534f (Initial commit after local changes)
                 className="btn btn-primary btn-lg login-button"
                 disabled={loading}
               >
@@ -108,7 +160,11 @@ function Login() {
               </button>
             </div>
           </form>
+<<<<<<< HEAD
 
+=======
+          
+>>>>>>> b9e534f (Initial commit after local changes)
           <div className="login-help">
             <p>
               <small>

@@ -155,4 +155,30 @@
     height: 60px;
     margin: -30px 0 0 -30px;
   }
+<<<<<<< HEAD
+=======
+  
+}
+.connection-status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--off-white);
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.connection-status span.connected {
+  color: var(--success-green);
+}
+.connection-status span.disconnected {
+  color: red;
+}
+.connection-status span.waiting {
+  color: var(--warning-yellow);
+}
+.connection-status span.ready {
+  color: var(--success-green);
+>>>>>>> b9e534f (Initial commit after local changes)
 }
