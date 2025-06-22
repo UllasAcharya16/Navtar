@@ -1,0 +1,30 @@
+plugins = []
+functionsDirectory = "C:\\Users\\User\\Desktop\\Navtar-main (2)\\Navtar-main\\netlify\\functions"
+functionsDirectoryOrigin = "config-v1"
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[build]
+publish = "C:\\Users\\User\\Desktop\\Navtar-main (2)\\Navtar-main\\dist"
+publishOrigin = "config"
+commandOrigin = "config"
+command = "npm run build"
+functions = "C:\\Users\\User\\Desktop\\Navtar-main (2)\\Navtar-main\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]

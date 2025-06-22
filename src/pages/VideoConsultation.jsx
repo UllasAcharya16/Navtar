@@ -6,6 +6,7 @@ import './VideoConsultation.css';
 function VideoConsultation() {
   return (
     <div className="video-consultation-page">
+<<<<<<< HEAD
       <Navbar />
       
       <div className="consultation-container container">
@@ -14,17 +15,34 @@ function VideoConsultation() {
           <p>Room: ICU-503 • Patient: John Smith • Time: {new Date().toLocaleTimeString()}</p>
         </div>
         
+=======
+      <div className="consultation-container">
+        {/* <div className="consultation-header">
+          <h1>Remote Consultation</h1>
+          <p>Room: ICU-503 • Patient: John Smith • Time: {new Date().toLocaleTimeString()}</p>
+        </div> */}
+
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
         <div className="consultation-content">
           <div className="video-section">
             <VideoScreen />
           </div>
+<<<<<<< HEAD
           
+=======
+
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
           <div className="controls-section">
             <JoystickControl />
           </div>
         </div>
+<<<<<<< HEAD
         
         <div className="patient-info card">
+=======
+
+        {/* <div className="patient-info card">
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
           <h3>Patient Information</h3>
           <div className="info-grid">
             <div className="info-item">
@@ -52,7 +70,11 @@ function VideoConsultation() {
               <span className="info-value">Sarah Johnson</span>
             </div>
           </div>
+<<<<<<< HEAD
         </div>
+=======
+        </div> */}
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
       </div>
     </div>
   );

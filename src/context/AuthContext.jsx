@@ -13,10 +13,9 @@ export function AuthProvider({ children }) {
       setUser(JSON.parse(storedUser));
     }
     setLoading(false);
-<<<<<<< HEAD
-    
-=======
->>>>>>> b9e534f (Initial commit after local changes)
+
+
+
   }, []);
 
   const login = (userData) => {

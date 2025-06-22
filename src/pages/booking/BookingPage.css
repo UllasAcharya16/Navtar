@@ -29,6 +29,10 @@
   height: 500px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+<<<<<<< HEAD
+=======
+  grid-template-rows: repeat(5,1fr);
+>>>>>>> d0bf2ab (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
   background: var(--white);
   padding: 1rem;
   margin: auto;

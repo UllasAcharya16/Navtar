@@ -148,7 +148,11 @@ function JoystickControl() {
     const handleConnect = () => {
       console.log('✅ MQTT connected');
       setMqttStatus('Connected');
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
       // Add a small delay and check if client is still connected before subscribing
       setTimeout(() => {
         if (mqttClient.connected && !isSubscribed) {
@@ -178,7 +182,11 @@ function JoystickControl() {
 
     const handleMessage = (topic, message) => {
       console.log('📨 Received message:', topic, message.toString());
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
       if (topic === 'bot/status') {
         const status = message.toString();
         console.log('📡 Bot status:', status);
@@ -202,7 +210,11 @@ function JoystickControl() {
 
     // If already connected, handle it
     if (mqttClient.connected) {
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
       handleConnect();
     }
 
@@ -212,7 +224,11 @@ function JoystickControl() {
       mqttClient.off('disconnect', handleDisconnect);
       mqttClient.off('error', handleError);
       mqttClient.off('message', handleMessage);
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
       // Don't call mqttClient.end() here as it might be used by other components
     };
   }, []); // Empty dependency array
@@ -223,6 +239,7 @@ function JoystickControl() {
     const maxDistance = 50;
     let normalizedSpeed = Math.min(Math.round((distance / maxDistance) * 100), 100);
 
+<<<<<<< HEAD
 // Apply a dead zone: treat anything below 15% as STOP
 if (normalizedSpeed < 15) {
   normalizedSpeed = 0;
@@ -242,12 +259,34 @@ if (normalizedSpeed > 0) {
   else if (angle >= -112.5 && angle < -67.5) newDirection = 'Backward';
   else if (angle >= -67.5 && angle < -22.5) newDirection = 'Backward-Right';
 }
+=======
+    // Apply a dead zone: treat anything below 15% as STOP
+    if (normalizedSpeed < 15) {
+      normalizedSpeed = 0;
+    }
+
+    setSpeed(normalizedSpeed);
+
+    let newDirection = 'Stopped';
+    if (normalizedSpeed > 0) {
+      const angle = Math.atan2(-position.y, position.x) * (180 / Math.PI);
+      if (angle >= -22.5 && angle < 22.5) newDirection = 'Right';
+      else if (angle >= 22.5 && angle < 67.5) newDirection = 'Forward-Right';
+      else if (angle >= 67.5 && angle < 112.5) newDirection = 'Forward';
+      else if (angle >= 112.5 && angle < 157.5) newDirection = 'Forward-Left';
+      else if (angle >= 157.5 || angle < -157.5) newDirection = 'Left';
+      else if (angle >= -157.5 && angle < -112.5) newDirection = 'Backward-Left';
+      else if (angle >= -112.5 && angle < -67.5) newDirection = 'Backward';
+      else if (angle >= -67.5 && angle < -22.5) newDirection = 'Backward-Right';
+    }
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
 
     setDirection(newDirection);
     setRobotStatus(normalizedSpeed > 0 ? 'Moving' : 'Ready');
 
     // Only publish if connected and not disconnecting
     if (mqttClient.connected) {
+<<<<<<< HEAD
   // Create and adjust the command
   const command = {
     direction: normalizedSpeed === 0 ? 'Stop' : newDirection,
@@ -263,6 +302,23 @@ if (normalizedSpeed > 0) {
     }
   });
 }
+=======
+      // Create and adjust the command
+      const command = {
+        direction: normalizedSpeed === 0 ? 'Stop' : newDirection,
+        speed: normalizedSpeed
+      };
+
+      // Only publish meaningful commands
+      mqttClient.publish('robot/control', JSON.stringify(command), (err) => {
+        if (!err) {
+          console.log('📤 Published command:', command);
+        } else {
+          console.error('❌ Publish error:', err);
+        }
+      });
+    }
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
 
   }, [position]);
 
@@ -347,6 +403,7 @@ if (normalizedSpeed > 0) {
         <p>Bot: <span className={botStatus === 'Ready' ? 'ready' : 'waiting'}>{botStatus}</span></p>
       </div>
 
+<<<<<<< HEAD
       <div className="joystick-title">
         <h3>Robot Controls</h3>
         <div className={`status-indicator ${mqttStatus.toLowerCase().replace(' ', '-')}`}>
@@ -359,6 +416,11 @@ if (normalizedSpeed > 0) {
           Bot: {robotStatus}
         </div>
       </div>
+=======
+      {/* <div className="joystick-title">
+        <h3>Robot Controls</h3>
+      </div> */}
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
 
 >>>>>>> b9e534f (Initial commit after local changes)
       <div className="joystick-stats">
@@ -409,9 +471,15 @@ if (normalizedSpeed > 0) {
         <div className="joystick-direction-indicator left">◀</div>
 
         <div
+<<<<<<< HEAD
           className="joystick-handle"
           ref={handleRef}
           style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
+=======
+          ref={handleRef}
+          style={{ transform: `translate(${position.x}px, ${position.y}px)` }}
+          className={` joystick-handle ${botStatus} === 'Ready' ? ready : waiting`}
+>>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
         ></div>
       </div>
 
