@@ -12,7 +12,7 @@ function VideoScreen() {
   const [connectionStatus, setConnectionStatus] = useState('connecting');
 
   const APP_ID = 'a7aeacef31f4472ab9e1545f3622309a';
-  const TOKEN = 'YOUR_AGORA_TEMP_TOKEN_HERE';
+  const TOKEN = '007eJxTYJCJKOg+sFvfguNUywlDjWBJY/7TXfe3vdmpdqpRTOTr1noFhkTzxNTE5NQ0Y8M0ExNzo8Qky1RDUxPTNGMzIyNjA8tEjWnhGQ2BjAyTLKazMDJAIIgvyFCWmZKa75yfV1yaU5JYkpmfx8AAALHyI6c=';
   const CHANNEL = 'videoConsultation';
 
   useEffect(() => {
@@ -35,11 +35,15 @@ function VideoScreen() {
           await client.subscribe(user, mediaType);
 
           if (mediaType === 'video') {
-            const container = document.createElement('div');
-            container.id = `remote-player-${user.uid}`;
-            container.className = 'remote-video';
-            document.getElementById('remote-player-container').appendChild(container);
-            user.videoTrack.play(container.id);
+            const container = document.getElementById('remote-player-container');
+            container.innerHTML = ''; // Clear previous video if any
+
+            const remoteContainer = document.createElement('div');
+            remoteContainer.id = `remote-player-${user.uid}`;
+            remoteContainer.className = 'remote-video';
+            container.appendChild(remoteContainer);
+
+            user.videoTrack.play(remoteContainer.id);
           }
 
           if (mediaType === 'audio') {
@@ -47,11 +51,10 @@ function VideoScreen() {
           }
         });
 
-        client.on('user-unpublished', (user) => {
-          const container = document.getElementById(`remote-player-${user.uid}`);
-          if (container) container.remove();
+        client.on('user-unpublished', () => {
+          const container = document.getElementById('remote-player-container');
+          if (container) container.innerHTML = '';
         });
-
       } catch (error) {
         console.error('Agora init failed:', error);
         alert('Failed to connect to video session.');
@@ -108,10 +111,12 @@ function VideoScreen() {
       ) : (
         <>
           <div className="main-video">
-            <div id="local-player" className="video-feed"></div>
-            <div className="participant-label">You (Doctor)</div>
-            {isMuted && <div className="mute-indicator">🔇</div>}
-            {isVideoOff && <div className="video-off-indicator"><span>📵</span>Camera Off</div>}
+            <div id="remote-player-container" className="remote-video-feed"></div>
+
+            <div className="local-thumbnail">
+              <div id="local-player" className="local-video-feed"></div>
+              <div className="participant-label">You (Doctor)</div>
+            </div>
           </div>
 
           <div className="video-controls">
@@ -135,8 +140,6 @@ function VideoScreen() {
               <span className="control-label">End Call</span>
             </button>
           </div>
-
-          <div className="participants-grid" id="remote-player-container"></div>
         </>
       )}
     </div>
