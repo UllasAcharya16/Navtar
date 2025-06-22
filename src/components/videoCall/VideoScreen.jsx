@@ -24,7 +24,7 @@ function useMicrophoneLevel() {
     const checkLevel = () => {
       analyser.getByteFrequencyData(dataArray);
       const avg = dataArray.reduce((a, b) => a + b, 0) / dataArray.length;
-      setLevel(avg / 255);
+      setLevel(avg / 255); // Normalize to 0-1
       requestAnimationFrame(checkLevel);
     };
     checkLevel();
@@ -121,19 +121,8 @@ function VideoScreen() {
 
           if (mediaType === 'video') {
             const container = document.getElementById('remote-player-container');
-
-            container.innerHTML = ''; // Clear previous video if any
-
-            const remoteContainer = document.createElement('div');
-            remoteContainer.id = `remote-player-${user.uid}`;
-            remoteContainer.className = 'remote-video';
-            container.appendChild(remoteContainer);
-
-            user.videoTrack.play(remoteContainer.id);
-
             container.innerHTML = '';
             user.videoTrack.play('remote-player-container');
-
           }
 
           if (mediaType === 'audio') {
@@ -145,6 +134,7 @@ function VideoScreen() {
           const container = document.getElementById('remote-player-container');
           if (container) container.innerHTML = '';
         });
+
       } catch (error) {
         console.error('Agora init failed:', error);
         setModalTitle('Connection Error');
@@ -270,14 +260,17 @@ function VideoScreen() {
               {isMuted ? '🔇' : '🔊'}
               <span className="control-label">{isMuted ? 'Unmute' : 'Mute'}</span>
             </button>
+
             <button className={`control-button ${isVideoOff ? 'active' : ''}`} onClick={toggleVideo}>
               {isVideoOff ? '📵' : '📹'}
               <span className="control-label">{isVideoOff ? 'Start Video' : 'Stop Video'}</span>
             </button>
+
             <button className="control-button" onClick={toggleFullScreen}>
               {isFullScreen ? '⬜' : '⬛'}
               <span className="control-label">{isFullScreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
             </button>
+
             <button className="control-button end-call" onClick={endCall}>
               📞
               <span className="control-label">End Call</span>

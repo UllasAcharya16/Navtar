@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 .connecting-overlay {
   position: absolute;
   top: 0;
@@ -61,16 +59,11 @@
   }
 }
 
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
 .main-video {
   position: relative;
   width: 100%;
   height: calc(100vh - 120px);
-<<<<<<< HEAD
-  background-color: #0F172A;
-=======
   background-color: #0f172a;
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
   overflow: hidden;
 }
 
@@ -88,11 +81,7 @@
   left: 1rem;
   width: 200px;
   height: 120px;
-<<<<<<< HEAD
-  background: #1E293B;
-=======
   background: #1e293b;
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
   border-radius: 8px;
   overflow: hidden;
   z-index: 2;
@@ -106,13 +95,6 @@
 
 .participant-label {
   position: absolute;
-<<<<<<< HEAD
-  bottom: 4px;
-  left: 8px;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 2px 6px;
-  font-size: 0.75rem;
-=======
   width: 100%;
   height: 100%;
   display: flex;
@@ -123,13 +105,10 @@
   background-color: rgba(0, 0, 0, 0.6);
   padding: 2px 6px;
   font-size: 1.2rem;
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
   border-radius: 4px;
   color: white;
   z-index: 3;
 }
-<<<<<<< HEAD
-=======
 
 .video-controls {
   width: 100%;
@@ -193,4 +172,3 @@
 .video-screen .modal-header h3 {
   font-size: 1.2rem;
 }
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)

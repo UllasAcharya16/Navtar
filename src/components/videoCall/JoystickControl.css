@@ -6,14 +6,9 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-<<<<<<< HEAD
-}
-
-=======
   text-align: center;
 }
-/* 
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
+
 .joystick-title {
   display: flex;
   justify-content: space-between;
@@ -24,11 +19,7 @@
 .joystick-title h3 {
   margin: 0;
   color: var(--primary-blue);
-<<<<<<< HEAD
 }
-=======
-} */
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
 
 .status-indicator {
   padding: 0.25rem 0.75rem;
@@ -88,21 +79,10 @@
   flex-shrink: 0;
 }
 
-<<<<<<< HEAD
 .joystick-handle {
   width: 80px;
   height: 80px;
   background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
-=======
-.joystick-handle.ready {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(
-    135deg,
-    var(--primary-blue) 0%,
-    var(--primary-dark) 100%
-  );
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
   border-radius: 50%;
   position: absolute;
   top: 50%;
@@ -114,16 +94,17 @@
   transition: box-shadow 0.2s ease;
 }
 
-<<<<<<< HEAD
-=======
-.joystick-handle.waiting {
-  background: var(--warning-yellow);
-}
-
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
 .joystick-handle:active {
   cursor: grabbing;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.joystick-handle.ready {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+}
+
+.joystick-handle.waiting {
+  background: var(--warning-yellow);
 }
 
 .joystick-direction-indicator {
@@ -171,34 +152,20 @@
   margin-bottom: 0.5rem;
 }
 
-<<<<<<< HEAD
-/* Make the joystick responsive */
-=======
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
+/* Responsive */
 @media (max-width: 768px) {
   .joystick-base {
     width: 150px;
     height: 150px;
   }
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
   .joystick-handle {
     width: 60px;
     height: 60px;
     margin: -30px 0 0 -30px;
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d0bf2ab (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
-  
-=======
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
 }
+
 .connection-status {
   display: flex;
   justify-content: space-between;
@@ -212,21 +179,15 @@
 .connection-status span.connected {
   color: var(--success-green);
 }
+
 .connection-status span.disconnected {
   color: red;
 }
+
 .connection-status span.waiting {
   color: var(--warning-yellow);
 }
+
 .connection-status span.ready {
   color: var(--success-green);
-<<<<<<< HEAD
->>>>>>> b9e534f (Initial commit after local changes)
 }
-=======
-<<<<<<< HEAD
-}
-=======
-}
->>>>>>> 1f176b0 (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
->>>>>>> d0bf2ab (🚀 3rd commit: Added updated video screen with mic-level and dynamic layout)
